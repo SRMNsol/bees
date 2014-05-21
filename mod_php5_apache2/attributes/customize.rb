@@ -17,3 +17,4 @@
 #                                         'php-pear-Auth-SASL',
 #                                         'php-mysql',
 #                                         'php-mcrypt' ]
+normal[:mod_php5_apache2][:packages] = [ 'php55' ]
