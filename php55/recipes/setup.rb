@@ -18,7 +18,7 @@ case node[:platform]
     ruby_block "insert_line" do
       block do
         file = Chef::Util::FileEdit.new("/etc/yum.conf")
-        file.insert_line_if_no_match("/exclude=httpd*/", "exclude=httpd*")
+        file.insert_line_if_no_match("/exclude=httpd\*/", "exclude=httpd*")
         file.write_file
       end
     end
