@@ -32,4 +32,6 @@ case node[:platform]
     end
 
     include_recipe "php"
-  end
+end
+
+include_recipe 'apache2'
