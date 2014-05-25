@@ -14,6 +14,14 @@ case node[:platform]
     execute "yum install -y php55 php55-devel"
     # execute "yum install -y php55 php55-devel php55-cli php55-snmp php55-soap php55-xml php55-xmlrpc php55-process php55-mysqlnd php55-pecl-memcache php55-opcache php55-pdo php55-imap php55-mbstring php55-intl"
 
+    # don't install httpd
+    ruby_block "insert_line" do
+      block do
+        file = Chef::Util::FileEdit.new("/etc/yum.conf")
+        file.insert_line_if_no_match("/exclude=httpd*/", "exclude=httpd*")
+        file.write_file
+      end
+    end
   when "rhel", "fedora", "suse", "centos"
     node.set['php']['packages'] = ['php55', 'php55-devel', 'php55-cli', 'php55-snmp', 'php55-soap', 'php55-xml', 'php55-xmlrpc', 'php55-process', 'php55-mysqlnd', 'php55-pecl-memcache', 'php55-opcache', 'php55-pdo', 'php55-imap', 'php55-mbstring']
     node.set['mysql']['server']['packages'] = %w{mysql55-server}
