@@ -7,18 +7,16 @@ case node[:platform]
     # remove any existing php/mysql
     execute "yum remove -y php* httpd*"
 
-    # get the metadata
-    execute "yum -q makecache"
-
     # manually install php 5.5
     execute "yum install -y php55 php55-devel"
     # execute "yum install -y php55 php55-devel php55-cli php55-snmp php55-soap php55-xml php55-xmlrpc php55-process php55-mysqlnd php55-pecl-memcache php55-opcache php55-pdo php55-imap php55-mbstring php55-intl"
 
-    # prevent httpd from being installed separately
+    # prevent packages from being installed separately as we have either installed it
+    # or the new package doesn't require it
     ruby_block "insert_line" do
       block do
         file = Chef::Util::FileEdit.new("/etc/yum.conf")
-        file.insert_line_if_no_match("/exclude=httpd\*/", "exclude=httpd*")
+        file.insert_line_if_no_match("/exclude=httpd\*/", "exclude=httpd*,mod_ssl")
         file.write_file
       end
     end
