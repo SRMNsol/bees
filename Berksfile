@@ -1,2 +1,1 @@
-cookbook 'apt'
 cookbook 'composer'
