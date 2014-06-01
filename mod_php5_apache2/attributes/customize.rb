@@ -6,12 +6,12 @@
 # put the overrides in YOUR customize.rb file.
 ###
 
-normal[:mod_php5_apache2][:packages] = [ 'php54-xml',
-                                         'php54-common',
-                                         'php54-xmlrpc',
-                                         # 'php54-devel',
-                                         'php54-gd',
-                                         'php54-cli',
-                                         # 'php54-pear-Auth-SASL',
-                                         'php54-mysql',
-                                         'php54-mcrypt' ]
+#normal[:mod_php5_apache2][:packages] = [ 'php54-xml',
+#                                         'php54-common',
+#                                         'php54-xmlrpc',
+#                                         # 'php54-devel',
+#                                         'php54-gd',
+#                                         'php54-cli',
+#                                         # 'php54-pear-Auth-SASL',
+#                                         'php54-mysql',
+#                                         'php54-mcrypt' ]
