@@ -12,7 +12,7 @@ normal[:mod_php5_apache2][:packages] = [
                                         'php5-xsl',
                                         'php5-curl',
                                         'php5-xmlrpc',
-                                        'php5-sqlite',
+                                        # 'php5-sqlite',
                                         'php5-dev',
                                         'php5-gd',
                                         'php5-cli',
@@ -25,4 +25,5 @@ normal[:mod_php5_apache2][:packages] = [
                                         'php-mail-mime',
                                         'php-db',
                                         'php-mdb2',
-                                        'php-html-common' ]
+                                        'php-html-common',
+                                        'php-apc' ]
