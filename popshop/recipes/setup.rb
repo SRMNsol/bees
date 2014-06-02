@@ -9,6 +9,6 @@ execute "apt-get update" do
 end
 
 # Upgrade to PHP 5.4
-execute "apt-get dist-upgrade" do
+execute "apt-get dist-upgrade -y" do
   user "root"
 end
