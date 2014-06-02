@@ -1,5 +1,5 @@
 # Add a PPA for PHP 5.4
-execute "add-apt-repository ppa:ondrej/php5-oldstable" do
+execute "add-apt-repository ppa:ondrej/php5" do
   user "root"
 end
 
