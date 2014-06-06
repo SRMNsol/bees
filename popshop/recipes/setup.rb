@@ -8,7 +8,7 @@ execute "apt-get update" do
   user "root"
 end
 
-# Upgrade to PHP 5.4
+# Upgrade PHP (as well as other things)
 execute "apt-get upgrade -y" do
   user "root"
 end
