@@ -2,7 +2,7 @@
 #  Modify the default OpsWorks deploy for Ubuntu 12.04.
 #  When OpsWorks updates to Ubuntu 14.x then this can probably go away.
 #
-include_recipe "nodejs::npm"
+# include_recipe "nodejs::npm"
 
 
 node[:deploy].each do |application, deploy|
@@ -37,8 +37,8 @@ node[:deploy].each do |application, deploy|
   end
 
 
-  # NodeJS section
-  npm_package "nodejs-less" do
-    action :install
-  end
+  # # NodeJS section
+  # npm_package "nodejs-less" do
+  #   action :install
+  # end
 end
