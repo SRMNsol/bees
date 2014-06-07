@@ -21,6 +21,7 @@ end
   end
 end
 
-# execute "aptitude upgrade -y" do
-#   user "root"
-# end
+# Remove the PHP SASL module
+file "/etc/php5/conf.d/sasl.ini" do
+  action :delete
+end
