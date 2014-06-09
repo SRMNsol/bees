@@ -2,11 +2,11 @@ node[:deploy].each do |app_name, deploy|
 
   script "install_composer" do
     interpreter "bash"
-    user "root"
+    user "deploy"
     cwd "#{deploy[:deploy_to]}/current"
     code <<-EOH
     curl -sS https://getcomposer.org/installer | php
-    php composer.phar install --no-dev
+    php composer.phar install --no-dev --prefer-source --no-interaction
     EOH
   end
 
