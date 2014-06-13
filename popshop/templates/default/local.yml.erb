@@ -1,0 +1,8 @@
+# dbal
+db.options:
+  driver:   pdo_mysql
+  dbname:   <%= @database[:database] %>
+  host:     <%= @database[:host] %>
+  user:     <%= @database[:username] %>
+  password: <%= @database[:password] %>
+  charset:  utf8
