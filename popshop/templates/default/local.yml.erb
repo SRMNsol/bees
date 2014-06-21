@@ -6,3 +6,10 @@ db.options:
   user:     <%= @database[:username] %>
   password: <%= @database[:password] %>
   charset:  utf8
+
+# orm
+orm.em.options:
+  result_cache:
+    driver: memcache
+    host: <%= @memcached[:host] %>
+    port: <%= @memcached[:port] %>
