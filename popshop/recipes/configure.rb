@@ -12,6 +12,7 @@ node[:deploy].each do |app_name, deploy|
     group deploy[:group]
     variables(
       :database => deploy[:database],
+      :memcached => deploy[:memcached],
     )
     only_if do
       File.exists?("#{deploy[:deploy_to]}/shared/config")
