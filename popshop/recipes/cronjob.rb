@@ -4,59 +4,59 @@ node[:deploy].each do |app_name, deploy|
     next
   end
 
-  cron "networks" do
+  cron "popshops_networks" do
     user "deploy"
     hour "6"
     minute "0"
-    command "cd #{deploy[:deploy_to]}/current && php .bin/console.php api:networks --catalog-key=74762wn6w9utgw6khg2ta92gz"
+    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php api:networks --catalog-key=74762wn6w9utgw6khg2ta92gz"
   end
 
-  cron "linkshare" do
+  cron "linkshare_transactions" do
     user "deploy"
     hour "6"
     minute "20"
-    command "cd #{deploy[:deploy_to]}/current && php .bin/console.php linkshare:transactions"
+    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php linkshare:transactions"
   end
 
   cron "cj_transactions" do
     user "deploy"
     hour "6"
     minute "25"
-    command "cd #{deploy[:deploy_to]}/current && php .bin/console.php cj:transactions"
+    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php cj:transactions"
   end
 
   cron "pepperjam_transactions" do
     user "deploy"
     hour "6"
     minute "30"
-    command "cd #{deploy[:deploy_to]}/current && php .bin/console.php pepperjam:transactions"
+    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php pepperjam:transactions"
   end
 
   cron "pepperjam_transactions_update" do
     user "deploy"
     hour "6"
     minute "35"
-    command "cd #{deploy[:deploy_to]}/current && php .bin/console.php pepperjam:transactions --update"
+    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php pepperjam:transactions --update"
   end
 
   cron "shareasale_transactions" do
     user "deploy"
     hour "6"
     minute "40"
-    command "cd #{deploy[:deploy_to]}/current && php .bin/console.php shareasale:transactions"
+    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php shareasale:transactions"
   end
 
   cron "shareasale_transactions_update" do
     user "deploy"
     hour "6"
     minute "45"
-    command "cd #{deploy[:deploy_to]}/current && php .bin/console.php shareasale:transactions --update"
+    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php shareasale:transactions --update"
   end
 
   cron "referral_calculate" do
     user "deploy"
     hour "7"
     minute "0"
-    command "cd #{deploy[:deploy_to]}/current && php .bin/console.php beesavy:referral:calculate --exclude=pbbmedia@gmail.com"
+    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php beesavy:referral:calculate --exclude=pbbmedia@gmail.com"
   end
 end
