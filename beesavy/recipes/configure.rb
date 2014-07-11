@@ -13,6 +13,8 @@ node[:deploy].each do |app_name, deploy|
     variables(
       :database => deploy[:database],
       :memcached => deploy[:memcached],
+      :stack_name => node[:opsworks][:stack][:name],
+      :app => deploy[:app]
     )
     only_if do
       File.exists?("#{deploy[:deploy_to]}/shared/config")
