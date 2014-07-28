@@ -16,3 +16,7 @@ orm.em.options:
     driver: memcache
     host: <%= @memcached[:host] %>
     port: <%= @memcached[:port] %>
+
+# swiftmailer
+swiftmailer.options:
+  password: <%= @smtp[:password] %>
