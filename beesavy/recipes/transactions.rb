@@ -6,7 +6,7 @@ node[:deploy].each do |app_name, deploy|
 
   script "beesavy_transactions" do
     interpreter "bash"
-    user "deploy"
+    user deploy[:user]
     cwd "#{deploy[:deploy_to]}/current"
     code "php bin/console.php beesavy:transactions \"#{deploy[:app][:download][:from]}\" \"#{deploy[:app][:download][:to]}\""
   end
