@@ -4,6 +4,25 @@ node[:deploy].each do |app_name, deploy|
     next
   end
 
+  # write out local.yml
+  template "#{deploy[:deploy_to]}/shared/config/local.yml" do
+    source 'local.yml.erb'
+    mode '0644'
+    owner deploy[:user]
+    group deploy[:group]
+    variables(
+      :database => deploy[:database],
+      :memcached => deploy[:memcached],
+      :smtp => deploy[:smtp],
+      :stack_name => node[:opsworks][:stack][:name],
+      :app => deploy[:app]
+    )
+    only_if do
+      File.exists?("#{deploy[:deploy_to]}/shared/config")
+    end
+  end
+
+  # install app
   script "install_composer" do
     interpreter "bash"
     user "deploy"
