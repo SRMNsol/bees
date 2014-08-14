@@ -13,7 +13,6 @@ node[:deploy].each do |app_name, deploy|
     variables(
       :database => deploy[:database],
       :memcached => deploy[:memcached],
-      :smtp => deploy[:smtp],
       :stack_name => node[:opsworks][:stack][:name],
       :app => deploy[:app]
     )
