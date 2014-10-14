@@ -17,4 +17,25 @@ node[:deploy].each do |app_name, deploy|
     minute "0"
     command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php beesavy:referral:calculate"
   end
+
+  cron "beesavy_referral_calculate_1m" do
+    user deploy[:user]
+    hour "8"
+    minute "0"
+    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php beesavy:referral:calculate --month=`date -d \"1 month ago\" \"+%Y%m\"`"
+  end
+
+  cron "beesavy_referral_calculate_2m" do
+    user deploy[:user]
+    hour "9"
+    minute "0"
+    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php beesavy:referral:calculate --month=`date -d \"2 months ago\" \"+%Y%m\"`"
+  end
+
+  cron "beesavy_referral_calculate_3m" do
+    user deploy[:user]
+    hour "10"
+    minute "0"
+    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php beesavy:referral:calculate --month=`date -d \"3 months ago\" \"+%Y%m\"`"
+  end
 end
