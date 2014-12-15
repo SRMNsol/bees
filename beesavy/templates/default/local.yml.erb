@@ -22,5 +22,5 @@ swiftmailer.options:
   password: <%= @app[:smtp][:password] %>
 
 # storage
-bucket_dir: <%= @app[:s3][:bucket] %>
-bucket_url: <%= @app[:s3][:url] %>
+bucket_dir: <%= @app[:storage][:bucket] %>
+bucket_url: <%= @app[:storage][:url] %>
