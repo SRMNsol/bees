@@ -8,6 +8,6 @@ node[:deploy].each do |app_name, deploy|
     interpreter "bash"
     user deploy[:user]
     cwd "#{deploy[:deploy_to]}/current"
-    code "php bin/console.php beesavy:merchant:logo --limit=1 --no-interaction"
+    code "php bin/console.php beesavy:merchant:logo --no-interaction"
   end
 end
