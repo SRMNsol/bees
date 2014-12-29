@@ -38,4 +38,11 @@ node[:deploy].each do |app_name, deploy|
     minute "0"
     command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php beesavy:referral:calculate --month=`date -d \"3 months ago\" \"+%Y%m\"`"
   end
+
+  cron "beesavy_merchant_logo" do
+    user deploy[:user]
+    hour "11"
+    minute "0"
+    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php beesavy:merchant:logo --no-interaction"
+  end
 end
