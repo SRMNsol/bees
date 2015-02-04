@@ -8,7 +8,7 @@ node[:deploy].each do |app_name, deploy|
     user deploy[:user]
     hour "6"
     minute "0"
-    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php beesavy:transactions"
+    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php beesavy:transactions && php ./bin/console.php beesavy:transactions \"2 days ago\""
   end
 
   cron "beesavy_referral_calculate" do
