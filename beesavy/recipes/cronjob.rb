@@ -41,8 +41,6 @@ node[:deploy].each do |app_name, deploy|
 
   cron "beesavy_merchant_logo" do
     user deploy[:user]
-    hour "11"
-    minute "0"
-    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php beesavy:merchant:logo --no-interaction"
+    action :delete
   end
 end
