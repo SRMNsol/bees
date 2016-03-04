@@ -12,6 +12,7 @@ db.options:
 
 # orm
 orm.em.options:
+  cache_namespace: <%= @app[:cache_namespace] %>
   result_cache:
     driver: memcache
     host: <%= @memcached[:host] %>
@@ -24,3 +25,11 @@ swiftmailer.options:
 # storage
 bucket_dir: <%= @app[:storage][:bucket] %>
 bucket_url: <%= @app[:storage][:url] %>
+
+# rakuten oauth2
+rakuten_oauth2_config:
+  username: <%= @app[:rakuten_oauth2][:username] %>
+  password: <%= @app[:rakuten_oauth2][:password] %>
+  client_id: <%= @app[:rakuten_oauth2][:client_id] %>
+  client_secret: <%= @app[:rakuten_oauth2][:client_secret] %>
+  scope: <%= @app[:rakuten_oauth2][:scope] %>
