@@ -4,6 +4,13 @@ node[:deploy].each do |app_name, deploy|
     next
   end
 
+  cron "dev_backup_logs" do
+    user deploy[:user]
+    hour "5"
+    minute "0"
+    command "cd #{deploy[:deploy_to]}/current && php ./bin/console.php dev:backup-logs s3://logs.beesavy.com/"
+  end
+
   cron "beesavy_transactions" do
     user deploy[:user]
     hour "6"
